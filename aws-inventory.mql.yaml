@@ -1,0 +1,194 @@
+packs:
+  - uid: mondoo-asset-inventory-aws
+    name: AWS Asset Inventory Pack
+    version: 1.0.0
+    authors:
+      - name: Mondoo, Inc
+        email: hello@mondoo.com
+    tags:
+      mondoo.com/platform: aws,cloud
+      mondoo.com/category: best-practices
+    docs:
+      desc: |
+        The AWS Asset Inventory by Mondoo query pack retrieves information about AWS accounts for asset inventory.
+    filters:
+      - asset.platform == "aws"
+    queries:
+      - uid: mondoo-asset-inventory-aws-account-id
+        title: AWS account ID
+        mql: aws.account.id
+
+      - uid: mondoo-asset-inventory-aws-acm-certificates
+        title: AWS ACM Certificates
+        mql: aws.acm.certificates.length
+
+      - uid: mondoo-asset-inventory-aws-acm-certificates
+        title: AWS ACM Certificates
+        mql: aws.acm.certificates.length
+
+      - uid: mondoo-asset-inventory-aws-api-gateways
+        title: AWS API Gateways
+        mql: aws.apigateway.restApis.length
+
+      - uid: mondoo-asset-inventory-aws-autoscaling-groups
+        title: AWS Autoscaling Groups (not created by Mondoo)
+        mql: aws.autoscaling.groups.where( name != "mondoo-scanning-asg" ).length
+
+      - uid: mondoo-asset-inventory-aws-iam-users
+        title: AWS IAM users 
+        mql: aws.iam.users.length
+
+      - uid: mondoo-asset-inventory-aws-iam-groups
+        title: AWS IAM groups 
+        mql: aws.iam.groups.length
+
+      - uid: mondoo-asset-inventory-aws-iam-policies
+        title: AWS IAM custom policies 
+        mql: |
+          aws_account = aws.account.id
+          aws.iam.policies.where( arn.contains(aws_account)).length
+
+      - uid: mondoo-asset-inventory-aws-active-regions
+        title: AWS Regions Active 
+        mql: aws.regions.length
+      
+      - uid: mondoo-asset-inventory-aws-ec2-instances
+        title: AWS EC2 Instances
+        mql: aws.ec2.instances.length
+
+      - uid: mondoo-asset-inventory-aws-s3-buckets
+        title: AWS S3 Buckets 
+        mql: aws.s3.buckets.length
+
+      - uid: mondoo-asset-inventory-aws-vpcs
+        title: AWS VPCs 
+        mql: aws.vpcs.length
+
+      - uid: mondoo-asset-inventory-aws-security-groups
+        title: AWS Security Groups
+        mql: aws.ec2.securityGroups.length
+
+      - uid: mondoo-asset-inventory-aws-eks-clusters
+        title: AWS Elastic Kubernetes Clusters (EKS)
+        mql: aws.eks.clusters.length
+
+      - uid: mondoo-asset-inventory-aws-private-ecr-container-registries
+        title: AWS Private Elastic Container Registries (ECR)
+        mql: aws.ecr.privateRepositories.length
+
+      - uid: mondoo-asset-inventory-aws-public-ecr-container-registries
+        title: AWS Public Elastic Container Registries (ECR)
+        mql: aws.ecr.publicRepositories.length
+
+      - uid: mondoo-asset-inventory-aws-ecr-container-images
+        title: AWS Elastic Container Images (ECR)
+        mql: aws.ecr.images.length
+
+      - uid: mondoo-asset-inventory-aws-rds-dbclusters
+        title: AWS RDS DB Clustesr
+        mql: aws.rds.dbClusters.length
+
+      - uid: mondoo-asset-inventory-aws-cloudtrails 
+        title: AWS CloudTrails 
+        mql: aws.cloudtrail.trails.length
+
+      - uid: mondoo-asset-inventory-aws-dynamodb
+        title: AWS Dynamo DB Tables
+        mql: aws.dynamodb.tables.length
+
+      - uid: mondoo-asset-inventory-aws-dynamodb
+        title: AWS Dynamo DB Global Tables  
+        mql: aws.dynamodb.globalTables.length
+
+      - uid: mondoo-asset-inventory-aws-ecs-clusters 
+        title: AWS ECS Clusters
+        mql: aws.ecs.clusters.length
+
+      - uid: mondoo-asset-inventory-aws-ecs-container-instances
+        title: AWS ECS Container Instances
+        mql: aws.ecs.containerInstances.length
+
+      - uid: mondoo-asset-inventory-aws-ecs-containers
+        title: AWS ECS Containers
+        mql: aws.ecs.containers.length
+
+      - uid: mondoo-asset-inventory-aws-efs-filesysystems
+        title: AWS EFS Filesystems
+        mql: aws.efs.filesystems.length
+
+      - uid: mondoo-asset-inventory-aws-elasticache-clusters
+        title: AWS Elasticache Clusters
+        mql: aws.elasticache.clusters.length
+
+      - uid: mondoo-asset-inventory-aws-elasticache-cache-clusters
+        title: AWS Elasticache Cache Clusters
+        mql: aws.elasticache.cacheClusters.length
+
+      - uid: mondoo-asset-inventory-aws-elb-application
+        title: AWS Elastic Application Load Balancers
+        mql: aws.elb.loadBalancers.length
+
+      - uid: mondoo-asset-inventory-aws-elb-classic
+        title: AWS Elastic Classic Load Balancers
+        mql: aws.elb.classicLoadBalancers.length
+
+      - uid: mondoo-asset-inventory-aws-emr-clusters
+        title: AWS Elastic Map Reduce Clusters
+        mql: aws.emr.clusters.length
+
+      - uid: mondoo-asset-inventory-aws-es-domains
+        title: AWS Elasticsearch Service Domain
+        mql: aws.es.domains.length
+
+      - uid: mondoo-asset-inventory-aws-guardduty-detectors
+        title: AWS Guard Duty Detectors
+        mql: aws.guardduty.detectors.length
+
+      - uid: mondoo-asset-inventory-aws-kms-keys
+        title: AWS KMS Keys
+        mql: aws.kms.keys.length
+
+      - uid: mondoo-asset-inventory-aws-redshift-clusters
+        title: AWS RedShift Clusters
+        mql: aws.redshift.clusters.length
+
+      - uid: mondoo-asset-inventory-aws-sagemaker-endpoints
+        title: AWS Sagemaker Endpoints
+        mql: aws.sagemaker.endpoints.length
+
+      - uid: mondoo-asset-inventory-aws-sagemaker-notebook-instances
+        title: AWS Sagemaker Notebook Instances
+        mql: aws.sagemaker.notebookInstances.length
+
+      - uid: mondoo-asset-inventory-aws-secrets-manager-secrets
+        title: AWS Secrets Manager Secrets
+        mql: aws.secretsmanager.secrets.length
+
+      - uid: mondoo-asset-inventory-aws-security-hub
+        title: AWS Security Hub 
+        mql: aws.securityhub.hubs.length
+
+      - uid: mondoo-asset-inventory-aws-sns-topics
+        title: AWS SNS Topics
+        mql: aws.sns.topics.length
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+       
+
+
+
